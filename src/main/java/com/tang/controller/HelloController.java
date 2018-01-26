@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.tang.core.result.ResultGenerator;
-import com.tang.model.User;
+import com.tang.entity.User;
 
 
 /** 

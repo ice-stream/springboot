@@ -1,4 +1,4 @@
-package com.tang.model;
+package com.tang.entity;
 
 /**
  * 
