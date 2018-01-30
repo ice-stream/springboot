@@ -24,17 +24,10 @@ public class HelloController {
 		return "hello world";
 	}
 	
-	@RequestMapping("/user")
-	@ResponseBody
-	public String returnSucess(){
-		
-		return ResultGenerator.successs().toString();
-	}
-	
 	@RequestMapping("/getData")
 	@ResponseBody
-	public String returnSucessWithData(){
-		User user = new User(1, "TangGoooo", 24);
+	public String returnSucessWithData(User user1){
+		User user = new User(1L, "TangGoooo", 24L);
 		return ResultGenerator.successWithData(user).toString();
 	}
 

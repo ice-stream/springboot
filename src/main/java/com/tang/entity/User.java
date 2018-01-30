@@ -1,5 +1,10 @@
 package com.tang.entity;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 
 * @ClassName: User  
@@ -9,21 +14,27 @@ package com.tang.entity;
 * @version V1.0
  */
 public class User {
-	private Integer id;
+	 @Id
+     @Column(name = "id")
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name;
-	private Integer age;
+	private Long age;
 	
 
-	public User(Integer id, String name, Integer age) {
+	public User() {
+		super();
+	}
+	public User(Long id, String name, Long age) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
 	}
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -32,10 +43,10 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getAge() {
+	public Long getAge() {
 		return age;
 	}
-	public void setAge(Integer age) {
+	public void setAge(Long age) {
 		this.age = age;
 	}
 	

@@ -28,7 +28,7 @@ public class JsonKit {
 	}
 
 	public static void main(String[] args) {
-		User user = new User(1, "TangGoooo", 24);
+		User user = new User(1L, "TangGoooo", 24L);
 		String json = JsonKit.toJson(user);
 		// System.out.println(json);
 		User user2 = JsonKit.parse(json, User.class);

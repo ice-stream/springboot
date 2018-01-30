@@ -2,12 +2,13 @@ package com.tang.service;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tang.dao.UserDao;
 import com.tang.entity.User;
+
+import tk.mybatis.mapper.entity.Condition;
 
 @Service
 public class UserService {
@@ -16,22 +17,29 @@ public class UserService {
 	private UserDao userDao;
 	
     public void add(User user){
-    	userDao.add(user);
+    	userDao.insert(user);
     }
 	
-	public User findById(long id){
-	  return userDao.findById(id);
+	public User findById(Long id){
+	  return userDao.selectByPrimaryKey(id);
 	}
 	
 	public void delete(long id){
-	    userDao.delete(id);
+	    userDao.deleteByPrimaryKey(id);
 	};
 	
 	public void update(User user){
-		userDao.update(user);
+		userDao.updateByPrimaryKey(user);
 	}
 	
 	public List<User> list(String name){
-		return userDao.list(name);
+		Condition condition=new Condition(User.class);
+        condition.createCriteria().andCondition("name like '%"+name+"%'");
+        condition.setOrderByClause("name desc");
+		return userDao.selectByExample(name);
+	}
+
+	public List<User> getUsers() {
+		return userDao.selectAll();
 	}
 }

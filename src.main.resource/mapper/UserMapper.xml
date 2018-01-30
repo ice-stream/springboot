@@ -7,7 +7,7 @@
 		<result column="age" jdbcType="VARCHAR" property="age" />
 	</resultMap>
 
-	<select id="findById" resultMap="BaseResultMap">
+	<!-- <select id="findById" resultMap="BaseResultMap">
 		SELECT * FROM user WHERE id = #{id}
 	</select>
 
@@ -30,7 +30,7 @@
      		and id = #{id}
      	</if>
      </select>
-     <update id="update" parameterType="com.tang.User">
+     <update id="update" parameterType="com.tang.entity.User">
         update user
         <set>
         	<if test="name !=null">
@@ -47,8 +47,8 @@
      <select id="list" resultMap="BaseResultMap">
      	select * from user where 1=1
      	<if test="name !=null">
-     		and <!CDATA[name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')]]>
+     		and <![CDATA[name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')]]>
      	</if>
-     </select>
+     </select> -->
      
 </mapper>
