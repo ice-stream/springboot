@@ -34,12 +34,18 @@ public class UserService {
 	
 	public List<User> list(String name){
 		Condition condition=new Condition(User.class);
-        condition.createCriteria().andCondition("name like '%"+name+"%'");
-        condition.setOrderByClause("name desc");
-		return userDao.selectByExample(name);
+        condition.createCriteria().andLike("name", name);
+        condition.setOrderByClause(" age desc");
+		return userDao.selectByCondition(condition);
 	}
 
 	public List<User> getUsers() {
 		return userDao.selectAll();
+	}
+	
+	public static void main(String[] args) {
+		String name  = "tang";
+		String str = "name like "+"'%" + name + "%'";
+		System.out.println(str);
 	}
 }

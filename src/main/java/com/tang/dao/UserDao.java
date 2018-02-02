@@ -1,11 +1,7 @@
 package com.tang.dao;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
+import com.tang.core.base.Mapper;
 import com.tang.entity.User;
-
-import tk.mybatis.mapper.common.Mapper;
 
 public interface UserDao extends Mapper<User> {
 /*	
